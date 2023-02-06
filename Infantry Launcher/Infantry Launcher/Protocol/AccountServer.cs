@@ -21,7 +21,7 @@ namespace Infantry_Launcher.Protocol
         /// </summary>
         public static IStatus.PingRequestStatusCode PingAccount(string pingUrl)
         {
-            System.Net.ServicePointManager.SecurityProtocol = 0; // SystemDefault - See: https://learn.microsoft.com/en-us/dotnet/api/system.net.securityprotocoltype?view=net-7.0
+            System.Net.ServicePointManager.SecurityProtocol = (SecurityProtocolType)192; // SystemDefault - See: https://learn.microsoft.com/en-us/dotnet/api/system.net.securityprotocoltype?view=net-7.0
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(pingUrl);
             httpWebRequest.Method = "GET";
             httpWebRequest.ContentType = "application/json";
@@ -55,7 +55,7 @@ namespace Infantry_Launcher.Protocol
             if (requestModel == null)
             { throw new ArgumentNullException("requestModel"); }
 
-            System.Net.ServicePointManager.SecurityProtocol = 0; // SystemDefault - See: https://learn.microsoft.com/en-us/dotnet/api/system.net.securityprotocoltype?view=net-7.0
+            System.Net.ServicePointManager.SecurityProtocol = (SecurityProtocolType)192; // SystemDefault - See: https://learn.microsoft.com/en-us/dotnet/api/system.net.securityprotocoltype?view=net-7.0
             byte[] bytes = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(requestModel));
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(RegisterUrl);
             httpWebRequest.Method = "PUT";
@@ -116,7 +116,7 @@ namespace Infantry_Launcher.Protocol
             if (requestModel == null)
             { throw new ArgumentNullException("requestModel"); }
 
-            System.Net.ServicePointManager.SecurityProtocol = 0; // SystemDefault - See: https://learn.microsoft.com/en-us/dotnet/api/system.net.securityprotocoltype?view=net-7.0
+            System.Net.ServicePointManager.SecurityProtocol = (SecurityProtocolType)192; // SystemDefault - See: https://learn.microsoft.com/en-us/dotnet/api/system.net.securityprotocoltype?view=net-7.0
             byte[] bytes = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(requestModel));
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(LoginUrl);
             httpWebRequest.Method = "POST";
@@ -182,7 +182,7 @@ namespace Infantry_Launcher.Protocol
             if (requestModel == null)
             { throw new ArgumentNullException("requestModel"); }
 
-            System.Net.ServicePointManager.SecurityProtocol = 0; // SystemDefault - See: https://learn.microsoft.com/en-us/dotnet/api/system.net.securityprotocoltype?view=net-7.0
+            System.Net.ServicePointManager.SecurityProtocol = (SecurityProtocolType)192; // SystemDefault - See: https://learn.microsoft.com/en-us/dotnet/api/system.net.securityprotocoltype?view=net-7.0
             byte[] bytes = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(requestModel));
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(RequestUrl);
             httpWebRequest.Method = "POST";
