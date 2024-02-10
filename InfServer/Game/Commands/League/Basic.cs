@@ -23,15 +23,16 @@ namespace InfServer.Game.Commands.Mod
                 player.sendMessage(-1, "This command can only be used in non-public arenas.");
                 return;
             }
-            
-            if (!player._server.Name.Contains("League"))
-            {
-                if (!player._server.Name.Contains("TZ"))
-                {
-                    player.sendMessage(-1, "This command can only be used in league zones.");
-                    return;
-                }
-            }
+
+
+			bool isLeagueZone = player._server.Name.Contains("League") || player._server.Name.Contains("USL") || player._server.Name.Contains("CTFPL");
+			bool isTestZone = player._server.Name.Contains("TZ") || player._server.Name.Contains("Test"); // League tests if needed...
+			if (!isLeagueZone && !isTestZone)
+			{
+			    player.sendMessage(-1, "This command can only be used in league zones.");
+			    return;
+			}
+
 
             //Lock the arena
             if (!player._arena._bLocked)
